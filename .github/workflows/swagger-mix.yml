@@ -9,7 +9,7 @@ jobs:
           uses: actions/setup-go@v4
           with:
             go-version: 1.22
-        - name: Checkout the code and generate mixed file
+        - name: Checkout the code
           uses: actions/checkout@v4
         - name: Run generator
           run:
