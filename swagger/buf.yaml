@@ -9,4 +9,4 @@ lint:
   use:
     - DEFAULT
   ignore:
-    - google/api/annotations.proton
+    - google/api/annotations.proto
