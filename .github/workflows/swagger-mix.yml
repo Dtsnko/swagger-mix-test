@@ -5,8 +5,15 @@ jobs:
     runs-on: ubuntu-latest
     name: Merge a swagger files 
     steps:
-      - name: Mix
-        id: mix
-        uses: Dtsnko/swagger-mix-action@main
-        with:
-          directory: 'swagger'
+        - name: Set up Go
+          uses: actions/setup-go@v4
+          with:
+            go-version: 1.22
+        - name: Checkout the code and generate mixed file
+          uses: actions/checkout@v4
+          run:
+            go run github.com/msample/swagger-mixin@latest swagger/*.swagger.json > swagger/api.json
+            git add swagger/api.json
+            git commit -m "generated api.json"
+            git push
+
