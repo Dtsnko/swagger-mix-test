@@ -30,4 +30,5 @@ jobs:
             git push
   trigger-swagger-mix:
     name: Run swagger-mix
+    needs: swagger-generate
     uses: Dtsnko/swagger-mix-test/.github/workflows/swagger-mix.yml@main
