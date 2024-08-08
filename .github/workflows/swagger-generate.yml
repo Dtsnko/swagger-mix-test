@@ -23,6 +23,7 @@ jobs:
         - name: Run swagger-mix
           run: go run github.com/msample/swagger-mixin@latest swagger/engine.swagger.json swagger/storage.swagger.json swagger/messages.swagger.json swagger/logger.swagger.json swagger/contacts.swagger.json swagger/webitel-go.swagger.json swagger/wfm.swagger.json  > swagger/api.json
         - name: Push changes
+          if: always()
           run: |
               git add swagger/api.json
               git add swagger/logger.swagger.json
