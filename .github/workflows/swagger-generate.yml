@@ -25,5 +25,5 @@ jobs:
               git add swagger/logger.swagger.json
               git config --global user.name 'webitel-bot'
               git config --global user.email 'webitel-bot@users.noreply.github.com'
-              git commit -am "Automated swagger-mix generation"
+              git commit -am "Automated logger.swagger.json generation"
               git push
