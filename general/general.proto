@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package general;
+
+option go_package = "github.com/webitel/protos/general";
+
+message Lookup {
+  int64 id = 1;
+  string name = 2;
+}
+
