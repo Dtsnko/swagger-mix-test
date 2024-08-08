@@ -4,7 +4,7 @@ on:
       - logger/**
 
 jobs:
-  swagger-mix:
+  swagger-generate:
     runs-on: ubuntu-latest
     name: Run protoc gen-swagger compiler on logger
     steps:
@@ -28,5 +28,7 @@ jobs:
             git config --global user.email 'webitel-bot@users.noreply.github.com'
             git commit -am "Automated logger.swagger.json generation"
             git push
-        - name: Trigger swagger-mix workflow
-          uses: Dtsnko/swagger-mix-test/.github/workflows/swagger-mix.yml@main
+    trigger-swagger-mix:
+      runs-on: ubuntu-latest
+      name: Run swagger-mix
+      uses: Dtsnko/swagger-mix-test/.github/workflows/swagger-mix.yml@main
