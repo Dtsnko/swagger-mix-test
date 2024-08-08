@@ -2,6 +2,7 @@ on:
   push:
     paths:
       - swagger/**
+  workflow_call:
 
 jobs:
   swagger-mix:
@@ -17,13 +18,10 @@ jobs:
         - name: Run generator
           run:
             go run github.com/msample/swagger-mixin@latest swagger/engine.swagger.json swagger/storage.swagger.json swagger/messages.swagger.json swagger/logger.swagger.json swagger/contacts.swagger.json swagger/webitel-go.swagger.json swagger/wfm.swagger.json  > swagger/api.json
-        - name: Git add changes
-          if: always()
-          run:
-            git add swagger/api.json
         - name: Push changes
           if: always()
           run: |
+              git add swagger/api.json
               git config --global user.name 'webitel-bot'
               git config --global user.email 'webitel-bot@users.noreply.github.com'
               git commit -am "Automated swagger-mix generation"
